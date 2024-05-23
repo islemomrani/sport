@@ -1,0 +1,33 @@
+<div class="widget-neplayert-match">
+    <table class="table custom-table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>position</th>
+          <th>nbr</th>
+          <th>age</th>
+          <th>TEAM NAME</th>
+          <th>Team foundation</th>
+          
+          <th>actions</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of playersTab">
+          <td>{{player.name}}</td>
+          <td>{{player.position}}</td>
+          <td>{{player.nbr}}</td>
+          <td>{{player.age}}</td>
+          <td>{{player.teamId.name}}</td>
+          <td>{{player.teamId.foundation}}</td>
+          
+          <td><button class="btn btn-info" (click)="display(player._id)">display</button>
+            <button class="btn btn-warning" (click)="editPlayer(player._id)">edit</button> 
+            <button class="btn btn-danger" (click)="deleteplayer(player._id)">delete</button>
+          </td> 
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>

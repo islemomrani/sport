@@ -1,0 +1,41 @@
+<div class="widget-next-match">
+  {{matchesnbr}} match
+    <table class="table custom-table">
+      <thead>
+        <tr>
+          <th>score one</th>
+          <th>score two</th>
+          <th>team one </th>
+          <th>team two </th>
+          <th>result</th>
+          <th>actions</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of matchesTab">
+          <td>{{x.scoreOne}}</td>
+          <td>{{x.scoreTwo}}</td>
+          <td>{{x.teamOne}}</td>
+          <td>{{x.teamTwo}}</td>
+          <td><span [ngStyle]="{color:resultStyle(x.scoreOne,x.scoreTwo)[0]}"  *ngIf="x.scoreOne !=x.scoreTwo">
+            {{x.teamOne}} </span>
+          <span style="color:blue;" *ngIf="x.scoreOne==x.scoreTwo" >
+            {{resultStyle(x.scoreOne,x.scoreTwo)[1]}}
+
+          </span>
+          <span  *ngIf="x.scoreOne!=x.scoreTwo" >
+            {{resultStyle(x.scoreOne,x.scoreTwo)[1]}}
+
+          </span>
+        </td>
+          <td><button class="btn btn-info" (click)="display(x._id)">display</button>
+            <button class="btn btn-warning" (click)="editMatch(x._id)">edit</button> 
+            <button class="btn btn-danger" (click)="deleteMatch(x._id)">delete</button>
+          </td>          
+        </tr>
+       
+        
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,36 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">edit user</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7" style="margin-left: 23%;">
+                <form [formGroup]="editForm">
+                    <div class="form-group">
+                        <input type="text" formControlName="firstName" [(ngModel)]="user.firstName" class="form-control" placeholder=" First name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="lastName" [(ngModel)]="user.lastName" class="form-control" placeholder=" last name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="tel" [(ngModel)]="user.tel" class="form-control" placeholder="tel">
+                    </div>
+
+
+
+
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary py-3 px-5" value="edit" (click)="edit()">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

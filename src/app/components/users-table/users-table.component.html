@@ -1,0 +1,32 @@
+
+   
+      <table class="table" >
+       
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>email </th>
+            <th>tel </th>
+            <th>actions </th>
+            
+            
+          </tr>
+        
+       
+          <tr *ngFor="let user of usersTab">
+
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.tel}}</td>
+          
+                   <td>
+            <button class="btn btn-danger" (click)="deleteUser(user._id)">delete</button>
+                   </td>   
+          </tr>
+         
+          
+        
+      </table>
+    
+  

@@ -1,0 +1,61 @@
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+<header class="site-navbar py-4" role="banner">
+
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <div class="site-logo">
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="Logo">
+          </a>
+        </div>
+        <div class="ml-auto">
+          <nav class="site-navigation position-relative text-right" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <li class="active"><a routerLink="" class="nav-link">Home</a></li>
+              <li><a routerLink="maches" class="nav-link">Matches</a></li>
+              <li><a routerLink="teams" class="nav-link">teams</a></li>
+              <li><a routerLink="players" class="nav-link">Players</a></li>
+
+              <li *ngIf="isLoggedIn() && user.role=='admin'"><a href="" class="nav-link"></a>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="addMatch">add match</a>
+                    <a class="dropdown-item" routerLink="addTeam">add team</a>
+                    <a class="dropdown-item" routerLink="addPlayer">add player </a>
+                    <a class="dropdown-item" routerLink="admin">admin</a>
+                  </div>
+                </div></li>
+
+              <li *ngIf="!isLoggedIn()"><a routerLink="connexion">login</a></li>
+              <li *ngIf="!isLoggedIn()"><a routerLink="inscription">signup</a></li>
+              <li *ngIf="!isLoggedIn()"><a routerLink="signupAdmin">signupAdmin</a></li>
+              <li><a routerLink="searchMatch">Search</a></li>
+              <li><a routerLink="weather">weather</a></li>
+              <li><a routerLink="searchTeam">Search team</a></li>
+
+              <li *ngIf="isLoggedIn()">
+                <img [src]="user.avatar" style="width:50px;"  class="rounded-cercle"     alt="">
+                <a routerLink="profile">{{user.firstName}} {{user.lastName}}</a></li>
+              <li *ngIf="isLoggedIn()"><a routerLink="" (click)="logout()">logout</a></li>
+
+            </ul>
+            
+          </nav>
+          
+          <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+              class="icon-menu h3 text-white"></span></a>
+        </div>
+      </div>
+    </div>
+
+  </header>
